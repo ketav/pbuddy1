@@ -13,7 +13,8 @@ $con=mysqli_connect($host,$user,$pwd,$db);
 	}*/
 	if($task == "getDetails")
 	{
-	$result = mysqli_query($con, "CALL pb_GetDetailsN(".$start.",".$range.",".$userId.","."'0')");	
+	//$result = mysqli_query($con, "CALL pb_GetDetailsN(".$start.",".$range.",".$userId.","."'0')");	
+	$result = mysqli_query($con, "CALL pb_GetDetailsN(".$start.",".$range.",".$userId.",".$filterGenger.",".$lowerAgeRange.",".$higherAgeRange.")");	
 
 	$resultArray = array();
 	$rows = mysqli_num_rows($result);    

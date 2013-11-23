@@ -57,8 +57,35 @@
 		}
 function getandInsertPhotosData()
 				{
+				var filterGender='0',
+				lowerAgeRange='0',
+				higherAgeRange='0';
+				if($("#female").prop('checked') == true)
+				{
+				filterGender = 'f';
+				}
+				else if($("#male").prop('checked') == true)
+				{
+				filterGender = 'm';
+				}
+				if($("#ageRange1").prop('checked') == true)
+				{
+				lowerAgeRange = '0';
+				higherAgeRange = '15';
+				}
+				else if($("#ageRange2").prop('checked') == true)
+				{
+				lowerAgeRange = '15';
+				higherAgeRange = '20';
+				}
+				else if($("#ageRange3").prop('checked') == true)
+				{
+				lowerAgeRange = '20';
+				higherAgeRange = '25';
+				}
+				
 				$.ajax({
-						url: '/pbuddy/insert.php?task=getDetails&userId="<?php echo $_SESSION['userId']; ?>"&start='+start+'&range='+range,						
+						url: '/pbuddy/insert.php?task=getDetails&userId="<?php echo $_SESSION['userId']; ?>"&start='+start+'&range='+range+ '"&filterGenger="'+filterGender+ '"&lowerAgeRange="'+lowerAgeRange+ '"&higherAgeRange="'+higherAgeRange,													
 						type: "GET",
 						dataType: "html",
 						success: function(data)
@@ -199,6 +226,20 @@ function getandInsertPhotosData()
                 <option value="10">10</option>
             </select>
         </div>
+		<div id="filters">
+		<p>Gender</p>
+		<ul>
+		<li><input type="checkbox" id="female">Female</li>
+		<li><input type="checkbox" id="male">Male</li>
+		</ul>
+		<p>Age</p>
+		<ul>
+		<li><input type="checkbox" id="ageRange1"/>15-20</li>
+		<li><input type="checkbox" id="ageRange2"/>20-25</li>
+		<li><input type="checkbox" id="ageRange3"/>25-30</li>
+		</ul>
+		<input type="submit" id="filter" value="Filter Results"/>
+		</div>
 		<div id=''>
 		</div>
 	</div><!-- container -->
