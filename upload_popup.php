@@ -16,17 +16,13 @@
 ?>
 <html>
  <head>
-  <title>Album Details</title>
+  <title>Album Popup</title>
   <script type="text/javascript" src="/pbuddy1/resources/js/jquery-1.8.2.min.js"></script>
-  <script type="text/javascript" src="/pbuddy1/resources/js/jquery.colorbox-min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="/pbuddy1/resources/css/main.css" />
-  <link rel="stylesheet" type="text/css" href="/pbuddy1/resources/css/reset.css" />
-  <link rel="stylesheet" type="text/css" href="/pbuddy1/resources/css/colorbox.css" />
+
  </head>
  <body>
- <?php
-include 'header.php';
- ?>
  <?php
     if($user_id) {
       // We have a user ID, so probably a logged in user.
@@ -36,9 +32,10 @@ include 'header.php';
         $photos = $facebook->api('/'.$id.'?fields=photos.fields(source)&limit=0 ','GET');
 		echo "<script>\n";
 		echo "var photos='".json_encode($photos)."';\n";
-		echo "var idAlbum='".$id."';\n";
-		echo "var userID='".$user_id."'";
+		echo "var userID='".$user_id."';";
+		echo "var photoId='".$photoId."';";
 		echo  "</script>\n";
+		
 		/*foreach ($photos['photos']['data'] as $photo) {
 			echo '<img src="'.$photo['source'].'"/>';
 		}*/
@@ -59,9 +56,8 @@ include 'header.php';
       echo 'Please <a href="' . $login_url . '">login.</a>';
     }
   ?>
-  	   <div id="Photos">
-	<ul class="polaroids large-block-grid-4 masonry-container">
-	</ul>
+  	<div id="Photos">
+
    </div>
   
 		<script type="text/javascript">	
@@ -76,19 +72,15 @@ include 'header.php';
 		} 	
 		for ( x=0; x<raw_data.length;x++)
 			{
-			var HTML = "<a class='clickHereforLightbox' href='#'><img  src='"+raw_data[x].source+"'data-large='"+raw_data[x].source+"' alt='" +raw_data[x].id+ "'/></a>"
-			$(document.createElement('li')).html(HTML).appendTo("#Photos>ul.polaroids");
+				if(raw_data[x].id == photoId)
+				{	
+					var HTML = "<a  class='item' title='NA' href='"+raw_data[x].source+"'><img  src='"+raw_data[x].source+"'data-large='"+raw_data[x].source+"' alt='" +raw_data[x].id+ "'/></a>"
+					$( document.createElement('img')).attr('src',raw_data[x].source).appendTo("#Photos");
+				}
+			
 			}
-			$(".clickHereforLightbox").click(function()
-			{
-
-		var pid=  $(this).children().attr("alt");
-		$.colorbox({href:"upload_popup.php?id="+idAlbum+"&photoId="+pid});
-		});
+			  
         });
-		
-		
-		
 		</script>
  </body>
 </html>

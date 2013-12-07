@@ -26,8 +26,8 @@
 		<meta name="keywords" value="grid, images, slideshow, carousel, left, right, up, down" />
 		<title>Slideshow with grid of 9 separately animated images</title>
         <link rel="stylesheet" href="/PBUDDY/Resources/CSS/albumCarousel.css" />
-		<link rel="stylesheet" href="/PBUDDY/Resources/CSS/main.css" />
-		<link rel="stylesheet" href="/PBUDDY/Resources/CSS/reset.css" /> 
+		 <link rel="stylesheet" href="/pbuddy1/Resources/CSS/main.css" />
+		 <link rel="stylesheet" href="/pbuddy1/Resources/CSS/reset.css" />
 		<script src="Resources/js/jquery-1.8.2.min.js" type="text/javascript"></script>
 		<script src="Resources/js/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script>
 		

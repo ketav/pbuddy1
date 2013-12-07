@@ -1,0 +1,27 @@
+Profile Page Fields:
+nickname
+age
+locality
+gener
+member since
+
+Home Page Not Logged-In/Logged:
+1. Functionality to get photos for Not logged in.
+2. Dynamic Text 
+3. Dynamic Rating Bar
+4. HTML integration
+
+My Profile Page:
+1. HTML integration for form and photo listing.
+
+Remove Photo Popup:
+1. Functionality to Remove Photo.
+2. Carousel for photos.
+
+Photo Upload: Album/Photo 
+1. Dynamic text for album listing and photo listing.
+2. HTML integration.
+
+Upload Photo Popup:
+1. Integrate functionality on button click.
+2. HTML integration.

@@ -2,7 +2,7 @@ body>#header {background-color:#2E2E2E;position:fixed; width:140px; height:100%;
 body>#header .logoFig{}
 .menu-bar{padding-top:160px;}
 .menu-bar ul li{padding-top:20px;}
-#contentWrapper{margin-left:100px;}
+#contentWrapper{padding-left:250px;}
 #homePageDesign{background-image: -webkit-gradient(
 	linear,
 	left top,
@@ -23,3 +23,69 @@ ul.images li { float:left; position:absolute; top:0px;left:0px; }
 .mask { float:left; width:600px; height:600px; overflow:hidden;padding:70px 0 0 340px;}
 
 #filters{width:200px; float:right; position:relative;padding:150px 30px 0 0;}
+
+*:after{
+display:block;
+}
+
+ul.polaroids img
+{
+	display:inline;
+	width:190px;
+	margin-bottom:12px;
+	vertical-align: middle;
+	height:180px; 
+}
+
+
+ul.polaroids li
+{ 
+	width: 25%;
+	display:inline;
+}
+
+
+    ul.polaroids a:after 
+	{
+    content: attr(title);
+    }
+	
+	ul.polaroids a{
+
+	background: none repeat scroll 0 0 #FFFFFF;
+	color: #333333;
+	display: inline;
+	float: left;
+	font-family: "Marker Felt",sans-serif;
+	font-size: 18px;
+	margin: 0 0 27px 30px;
+	padding: 10px 10px 15px;
+	text-align: center;
+	text-decoration: none;	
+	width: auto;
+	-webkit-transform: rotate(-2deg);
+	-webkit-transition: -webkit-transform .15s linear;
+	-moz-transform: rotate(-2deg); 
+	box-shadow: 10px 10px 5px #888888;
+	-webkit-box-shadow: 0 3px 6px rgba(0,0,0,.5);
+	-moz-box-shadow: 0 3px 6px rgba(0,0,0,.5);
+	}
+ul.polaroids li:nth-child(even) a { -webkit-transform: rotate(2deg); -moz-transform: rotate(2deg); }
+ul.polaroids li:nth-child(3n) a { -webkit-transform: none; position: relative; top: -5px; -moz-transform: none; }
+ul.polaroids li:nth-child(5n) a { -webkit-transform: rotate(5deg); position: relative; right: 5px; -moz-transform: rotate(5deg); }
+ul.polaroids li:nth-child(8n) a { position: relative; right: 5px; top: 8px; }
+ul.polaroids li:nth-child(11n) a { position: relative; left: -5px; top: 3px; } 
+
+
+ 
+/* On hover, darken the shadows a bit */
+
+ul.polaroids li a:hover {
+-webkit-transform: scale(1.25);
+-moz-transform: scale(1.25);
+-webkit-box-shadow: 0 3px 6px rgba(0,0,0,.5);
+-moz-box-shadow: 0 3px 6px rgba(0,0,0,.5);
+position: relative;
+z-index: 5;
+}
+
