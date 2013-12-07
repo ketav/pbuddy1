@@ -20,8 +20,8 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <div id="header">
-				<a class="logoFig" title="Miko" href="/pbuddy/index.php">
-					<figure><img title="Miko" alt="Miko" src="/pbuddy/Resources/Images/logo.png"></figure>
+				<a class="logoFig" title="Miko" href="/pbuddy1/index.php">
+					<figure><img title="Miko" alt="Miko" src="/pbuddy1/Resources/Images/logo.png"></figure>
 				</a>					
 <div class="menu-bar">
 				<ul>

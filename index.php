@@ -19,9 +19,9 @@
   <title>2013 Photo Buddy</title>
   <!-- <meta name="apple-mobile-web-app-capable" content="yes" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-  <script type="text/javascript" src="/pbuddy/resources/js/jquery-1.8.2.min.js"></script>
-  <link rel="stylesheet" href="/PBUDDY/Resources/CSS/main.css" />
-  <link rel="stylesheet" href="/PBUDDY/Resources/CSS/reset.css" />
+  <script type="text/javascript" src="/pbuddy1/resources/js/jquery-1.8.2.min.js"></script>
+  <link rel="stylesheet" href="/pbuddy1/Resources/CSS/main.css" />
+  <link rel="stylesheet" href="/pbuddy1/Resources/CSS/reset.css" />
   </head>
 <body id="homePageDesign">
 <?php
@@ -51,7 +51,7 @@ $(document).ready(function(){
 if(typeof photoDetail !=='undefined')
 {
 var userDetail = $.parseJSON(photoDetail);
-//window.location = '/pbuddy/insert.php?task=insertUser&name='+userDetail.name+'&sex='+userDetail.gender+'&userid='+userDetail.id+'&geo='+userDetail.location.name+'&email='+userDetail.email;
+//window.location = '//pbuddy1/insert.php?task=insertUser&name='+userDetail.name+'&sex='+userDetail.gender+'&userid='+userDetail.id+'&geo='+userDetail.location.name+'&email='+userDetail.email;
 $.ajax({
 url: '/pbuddy1/insert.php?task=insertUser&name='+userDetail.name+'&sex='+userDetail.gender+'&userid='+userDetail.id+'&geo='+userDetail.hometown.name+'&email='+userDetail.email+'&age='+userDetail.age_range.min,
 type: "GET",

@@ -1,6 +1,6 @@
-<script type="text/javascript" src="/pbuddy/resources/js/barrating.js"></script>
-<script type="text/javascript" src="/pbuddy/resources/js/jquery.cycle.all.js"></script>
-<link href="/pbuddy/resources/css/ratingslider.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/pbuddy1/resources/js/barrating.js"></script>
+<script type="text/javascript" src="/pbuddy1/resources/js/jquery.cycle.all.js"></script>
+<link href="/pbuddy1/resources/css/ratingslider.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 		var ajaxCallBack = 0;
 		var photoDetails;
