@@ -17,14 +17,10 @@
 <html>
  <head>
   <title>Profile</title>
-<script type="text/javascript" src="/pbuddy/resources/js/jquery-1.8.2.min.js"></script> 
-<link rel="stylesheet" href="/PBUDDY/Resources/CSS/main.css" />
-<link rel="stylesheet" href="/PBUDDY/Resources/CSS/reset.css" />
-<!-- bxSlider Javascript file -->
-<script src="/pbuddy/resources/js/jquery.profilebxslider.js"></script>
-<!-- bxSlider CSS file -->
-<link href="/pbuddy/resources/css/jquery.profilebxslider.css" rel="stylesheet" /> 
- </head>
+<script type="text/javascript" src="/pbuddy1/resources/js/jquery-1.8.2.min.js"></script> 
+<link rel="stylesheet" href="/pbuddy1/Resources/CSS/main.css" />
+<link rel="stylesheet" href="/pbuddy1/Resources/CSS/reset.css" />
+</head>
  <body id="homePageDesign">
  <?php
 include 'header.php';
@@ -35,29 +31,39 @@ include 'header.php';
 		echo  "</script>\n";
 ?>
     <div class="profilecontainer">	
-		<div class="profilePhotoWrp">
-		<div class="photos">
-		<ul class="bxslider">
-		</ul>
-		</div>
-		</div>
+		<h4>MY PROFILE</h4>
 		<div class="profileForm">
+		<h5>My Information:</h5>
 		<form name="profileForm" id="profileForm" method="post">
-		<h4>Edit Your Information</h4>
 		<ul>
-		<li><label>Name:</label><span><input type="text" id="name" name="name"></span></li>
-		<li><label>Gender:</label><span><input type="text" id="gender" name="gender"></span></li>
-		<li><label>Address:</label><span><input type="text" id="address" name="address"></span></li>
+		<li>
+		<div class="registerFildsColumn"><label>Email:</label><span><input class="registerFields" type="email" id="email" name="email"></span></div>
+		<div class="registerFildsColumn"><label>Name:</label><span><input class="registerFields" type="text" id="name" name="name"></span></div>
+		</li>
+		<li>
+		<div class="registerFildsColumn"><label>Address:</label><span><input class="registerFields" type="text" id="address" name="address"></span></div>
+		<div class="registerFildsColumn"><label>Age:</label><span><input class="registerFields" type="number" id="age" name="age"></span></div>
+		</li>
+		<li><label>Gender:</label>
+		<table><tbody><tr>
+		<td><input type="radio" checked="checked" value="M" name="gender" id="genderMale"><label>Male</label></td>
+		<td><input type="radio" checked="false" value="F" name="gender" id="genderFemale"><label>Female</label></td>
+		</tr></tbody></table>
+		</li>
 		<li><input type="button" id="edit" value="Edit"/><input type="button" id="submit" value="Submit"/></li>
 		</ul>
 		</form>
 		</div>
+		<div class="photos">
+		<ul class="bxslider">
+		</ul>
+		</div>		
 	</div><!-- container -->
 	<script type="text/javascript">	
 	$( document ).ready(function() {
-	//window.location='http://localhost/pbuddy/insert.php?task=getUserDetails&userId='+userID;
+	//window.location='http://localhost/pbuddy1/insert.php?task=getUserDetails&userId='+userID;
 				$.ajax({
-						url: '/pbuddy/insert.php?task=getUserDetails&userId='+userID,						
+						url: '/pbuddy1/insert.php?task=getUserDetails&userId='+userID,						
 						type: "GET",
 						dataType: "html",
 						success: function(data)
@@ -67,19 +73,30 @@ include 'header.php';
 						   {								
 								if( typeof userDetails[x] != 'undefined')
 								{
+									$('#email').val(userDetails[x].email_id);
+									$('#email').attr('disabled', true)
 									$('#name').val(userDetails[x].name);
-									$('#name').attr('disabled', true)
-									$('#gender').val(userDetails[x].sex);
-									$('#gender').attr('disabled', true)
+									$('#name').attr('disabled', true);
+									$('#age').val(userDetails[x].age);
+									$('#age').attr('disabled', true);
 									$('#address').val(userDetails[x].geography);
-									$('#address').attr('disabled', true)
-									var HTML = "<img id='photo"+x+"' src='"+userDetails[x].photo_url+"'/><span>Current Photo Rating:"+userDetails[x].avg_rating+"/10</span>";	
+									$('#address').attr('disabled', true);
+									if(userDetails[x].sex=="m"){
+									$('#genderMale').attr('checked', 'checked');
+									$('#genderFemale').attr('checked', false);
+									}
+									else{
+									$('#genderFemale').attr('checked', 'checked');
+									$('#genderMale').attr('checked', false);
+									}
+									var HTML = "<img style='width:100px; height:100px;' id='photo"+x+"' src='"+userDetails[x].photo_url+"'/><span>Rating:"+userDetails[x].avg_rating+"/10</span>";	
 									$(document.createElement('li')).html(HTML).appendTo('div.photos ul.bxslider');
 								}
 						   }
 						$('.bxslider').bxSlider();						   
 						}						
-						});		
+						});	
+						
 $('#edit').click(function(){
 $('#name').attr('disabled',false);
 $('#gender').attr('disabled',false);
@@ -87,10 +104,14 @@ $('#address').attr('disabled',false);
 });					
 $('#submit').click(function(){
 var name=$('#name').val();
-var gender=$('#gender').val();
+var gender;
+if($('#genderMale').attr('checked') == 'checked')
+gender='m';
+else
+gender='f';
 var address=$('#address').val();
 $.ajax({
-						url: '/pbuddy/insert.php?task=updateUserDetails&userId='+userID+'&name='+name+'&gender='+gender+'&address='+address,						
+						url: '/pbuddy1/insert.php?task=updateUserDetails&userId='+userID+'&name='+name+'&gender='+gender+'&address='+address,						
 						type: "GET",
 						dataType: "html",
 						success: function(data)
@@ -104,9 +125,6 @@ $.ajax({
 	});
 });
 </script>
-<?php
-include 'footer.php';
-?>
- </body>
+</body>
 </html>
 
