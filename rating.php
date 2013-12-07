@@ -1,27 +1,6 @@
-<?php
-  // Remember to copy files from the SDK's src/ directory to a
-  // directory in your application on the server, such as php-sdk/
-  require_once('php-sdk/src/facebook.php');
-
-  $config = array(
-    'appId' => '188647124563048',
-    'secret' => 'dd9e0b9c9ee31990f0f12744fe88892d',
-	'cookie' => true
-  );
-
-  $facebook = new Facebook($config);
-  $user_id = $facebook->getUser(); 
-  $params = array('scope' => 'user_status,publish_stream,user_photos');
-  parse_str($_SERVER['QUERY_STRING']);
-     
-?>
-<html>
- <head>
-  <title>Photo Rating</title>
-<script type="text/javascript" src="/pbuddy/resources/js/jquery-1.8.2.min.js"></script>  
 <script type="text/javascript" src="/pbuddy/resources/js/barrating.js"></script>
 <script type="text/javascript" src="/pbuddy/resources/js/jquery.cycle.all.js"></script>
-  <link href="/pbuddy/resources/css/ratingslider.css" rel="stylesheet" type="text/css">
+<link href="/pbuddy/resources/css/ratingslider.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 		var ajaxCallBack = 0;
 		var photoDetails;
@@ -40,7 +19,7 @@
                      showSelectedRating:false,
 					 });
                         $.ajax({
-						url: '/pbuddy/insert.php?task= &rating='+value+'&pid='+$(".slideshow").children('img:visible').attr('data-photoid'),						
+						url: '/pbuddy1/insert.php?task= &rating='+value+'&pid='+$(".slideshow").children('img:visible').attr('data-photoid'),						
 						type: "GET",
 						dataType: "html",
 						success: function(data)
@@ -83,14 +62,14 @@ function getandInsertPhotosData()
 				lowerAgeRange = '20';
 				higherAgeRange = '25';
 				}
-				
+				//var url = '/pbuddy/insert.php?task=getDetails&userId="<?php echo $_SESSION['userId']; ?>"&start='+start+'&range='+range+ '"&filterGenger="'+filterGender+ '"&lowerAgeRange="'+lowerAgeRange+ '"&higherAgeRange="'+higherAgeRange;													
+				//alert(url);
 				$.ajax({
-						url: '/pbuddy/insert.php?task=getDetails&userId="<?php echo $_SESSION['userId']; ?>"&start='+start+'&range='+range+ '"&filterGenger="'+filterGender+ '"&lowerAgeRange="'+lowerAgeRange+ '"&higherAgeRange="'+higherAgeRange,													
+						url: '/pbuddy1/insert.php?task=getDetails&userId=<?php echo $_SESSION['userId']; ?>&start='+start+'&range='+range+ '&filterGenger='+filterGender+ '&lowerAgeRange='+lowerAgeRange+ '&higherAgeRange='+higherAgeRange,													
 						type: "GET",
 						dataType: "html",
 						success: function(data)
 						{
-						
 						   photoDetails = $.parseJSON(data);
 						   //console.log(' Calling from first time');
 						   
@@ -204,11 +183,8 @@ function getandInsertPhotosData()
 			
 		});
         
-    </script>
- </head>
- <body>
-    <div class="container">
-		<div class="slideshow" style="position: absolute; margin: 30px 370px;">
+    </script> 
+  		<div class="slideshow" style="position: absolute; margin: 30px 370px;">
 		
 		</div>			
 		<a href="#" class="next">skip</a>
@@ -242,22 +218,8 @@ function getandInsertPhotosData()
 		</div>
 		<div id=''>
 		</div>
-	</div><!-- container -->
-	<script type="text/javascript">	
-	
-	$( document ).ready(function() {
-				
-						getandInsertPhotosData();
-						
-						 
-	});
-
-	</script>
 <style type="text/css">
 .slideshow img { padding: 15px; border: 1px solid #ccc; background-color: #eee; }
 .rating-e .br-widget a {padding:20px !important;}
 a.next{position: absolute; margin: 475px 565px;}
 </style>
- </body>
-</html>
-

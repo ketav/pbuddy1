@@ -27,121 +27,33 @@
 <?php
 include 'header.php';
 ?>
-<?php
-    if($user_id) {
-	 $_SESSION['userId']=$user_id;
-	$user_profile = $facebook->api('/me?fields=id,name,age_range,hometown,email,gender','GET');
-	$search = Array('"',"'","\r","\n","\r\n","\n\r");
-	$replace =Array('\"',"\'","","","","");
-	$user_profile = str_replace($search,$replace,$user_profile);
-    $user_profile = json_encode($user_profile);
-	
-	
-    } else {
-      // No user, print a link for the user to login
-      $login_url = $facebook->getLoginUrl($params);     
-    }
-  ?>
+
 <div id="wrapper">
-<div id="Body_Container">
-	<div id="parentArticleBlockContainer">
-	<span class="leftIcon"></span>
-	<span class="rightIcon"></span>
-	<span class="middleBg"></span
-	<div class="articlemiddleContainer">
-		<div class="content-main articleBlockContainer">
-			<h1>Photo Buddy</h1>	
-			<div class="mainRotator">
-			<img src="http://sphotos-e.ak.fbcdn.net/hphotos-ak-frc3/s720x720/1069271_485636758195204_813076474_n.jpg"/>
-			<div>		
-		</div>
-    </div> 
-  </div>
-  <div id="menu" style="display:none;">
-    <ul class="site-nav clearfix">
-      <li class="nav-golden">
-	  <?php
-	  if($user_id)
-	  {
-	  echo('<a href="rating.php">Rate Your Friend</a>');
-	  }
-	  else
-	  {
-	  echo('<a href="'.$login_url.'">Rate Your Friend</a>');
-	  }
-	  ?>
-	  </li>
-      <li class="nav-pulse">
-	  <?php
-	  if($user_id)
-	  {
-	  echo('<a href="en-gb/global-town-square.html">People From Your Area</a>');
-	  }
-	  else
-	  {
-	  echo('<a href="'.$login_url.'">People From Your Area</a>');
-	  }
-	  ?>
-	  </li>
-      <li class="nav-only">
-	  <?php
-	  if($user_id)
-	  {
-	  echo('<a href="en-gb/only-on-twitter.html">Top Photos Of Month</a>');
-	  }
-	  else
-	  {
-	  echo('<a href="'.$login_url.'">Top Photos Of Month</a>');
-	  }
-	  ?>
-	  </li>
-      <li class="nav-my">
-	  <?php
-	  if($user_id)
-	  {
-	  echo('<a href="en-gb/your-year.html?section=index">Overall Leaders</a>');
-	  }
-	  else
-	  {
-	  echo('<a href="'.$login_url.'">Overall Leaders</a>');
-	  }
-	  ?>
-	  </li>
-	  <li class="nav-upload">
-	   <?php
-	  if($user_id)
-	  {
-	  echo('<a href="/pbuddy/home.php">Upload Photo</a>');
-	  }
-	  else
-	  {
-	  echo('<a href="'.$login_url.'">Upload Photo</a>');
-	  }
-	  ?>
-	  </li>
-    </ul>
-  </div>
-</div>
-</div> 
-<?php
-include 'footer.php';
-?>
 <?php
 	if(isset($user_profile))
 	{
 	echo "<script>\n";
 	echo "var photoDetail = '".$user_profile."'";
 	echo "</script>\n";
+	include 'rating.php';
 	}
-?>	
+	else
+	{
+	echo "<div class='mask'><ul class='images'></ul></div>";	
+	}
+?>	  
+</div>
+</div> 
+
 <script type="text/javascript">
+var imagesDetails, target=0;
 $(document).ready(function(){
 if(typeof photoDetail !=='undefined')
 {
 var userDetail = $.parseJSON(photoDetail);
 //window.location = '/pbuddy/insert.php?task=insertUser&name='+userDetail.name+'&sex='+userDetail.gender+'&userid='+userDetail.id+'&geo='+userDetail.location.name+'&email='+userDetail.email;
 $.ajax({
-url: '/pbuddy/insert.php?task=insertUser&name='+userDetail.name+'&sex='+userDetail.gender+'&userid='+userDetail.id+'&geo='+userDetail.hometown.name+'&email='+userDetail.email+'&age='+userDetail.age_range.min,
+url: '/pbuddy1/insert.php?task=insertUser&name='+userDetail.name+'&sex='+userDetail.gender+'&userid='+userDetail.id+'&geo='+userDetail.hometown.name+'&email='+userDetail.email+'&age='+userDetail.age_range.min,
 type: "GET",
 						dataType: "html",
 						success: function(data)
@@ -149,10 +61,49 @@ type: "GET",
 						   //alert(data); // alert on success
 						}
 						});
+getandInsertPhotosData();
 }
+else
+{
+getTop5PhotosData();
 }
-);
+var timingRun = setInterval(function() { sliderResponse(); },2500);
+
+});
+function sliderResponse() {
+var images = $('ul.images li');
+     images.fadeOut(1100).eq(target).fadeIn(1100);
+    target++;
+	if(target== images.length)
+	{
+		target=0;
+	}
+}
+
+function getTop5PhotosData()
+{
+$.ajax({
+						url: '/pbuddy1/insert.php?task=getTop5Details',													
+						type: "GET",
+						dataType: "html",
+						success: function(data)
+						{
+						imagesDetails = $.parseJSON(data);
+						bindPhotoDetails();
+						}
+						});
+}
+function bindPhotoDetails()
+{
+for( x=0;x<imagesDetails.length;x++)
+						   {
+								if( typeof imagesDetails[x] != 'undefined')
+								{
+								var HTML = "<img id='photo"+x+"' src='"+imagesDetails[x].photo_url+"'/><span>Current Photo Rating:"+imagesDetails[x].avg_rating+"/10</span>";	
+								$(document.createElement('li')).html(HTML).appendTo('div.mask ul.images');
+								}
+						   }
+}
 </script>
  </body>
 </html>
-
