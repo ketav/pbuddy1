@@ -56,7 +56,7 @@
       echo 'Please <a href="' . $login_url . '">login.</a>';
     }
   ?>
-  	<div id="Photos">
+  	<div id="PhotosUpload">
 	<a href='#'id='prev' style="position:relative; top: 50%; left: 0px;"><img src="/pbuddy1/resources/images/go_previous.png"  /></a>
 	<a href='#' id='next' style="position:relative; top: 50%; left: 88%;"><img src="/pbuddy1/resources/images/go_next.png" /></a>
 	<button type="button" class='uploadButton' style="position:relative;top:94%; left:17%;">Upload This Photo</button> 
@@ -78,7 +78,7 @@
 			{
 				if(raw_data[x].id == photoId)
 				{	
-				$("div#Photos").attr("style","height:500px; width:400px;background-size: 100% 100%;background-image: url("+raw_data[x].source+");");
+				$("div#PhotosUpload").attr("style","height:500px; width:400px;background-size: 100% 100%;background-image: url("+raw_data[x].source+");");
 					//var HTML = "<a  class='item' title='NA' href='"+raw_data[x].source+"'><img  src='"+raw_data[x].source+"' class='imagePopup' alt='" +raw_data[x].id+ "'/></a>"
 					//$( document.createElement('img')).attr('src',raw_data[x].source).attr('class','imagePopup').attr('max-height','550').attr('max-width','400').appendTo("#Photos");
 					imgNav=x;
@@ -97,7 +97,7 @@
 				imgNav=0;
 			}
 			
-						$("div#Photos").attr("style","height:500px; width:400px;background-size: 100% 100%;background-image: url("+raw_data1[imgNav].source+");");
+						$("div#PhotosUpload").attr("style","height:500px; width:400px;background-size: 100% 100%;background-image: url("+raw_data1[imgNav].source+");");
 
 		}
 		);
@@ -108,7 +108,7 @@
 			{
 				imgNav=raw_data1.length-1;
 			}
-			$("div#Photos").attr("style","height:500px; width:400px;background-size: 100% 100%;background-image: url("+raw_data1[imgNav].source+");");
+			$("div#PhotosUpload").attr("style","height:500px; width:400px;background-size: 100% 100%;background-image: url("+raw_data1[imgNav].source+");");
 		}
 		);
 		

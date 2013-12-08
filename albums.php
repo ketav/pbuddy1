@@ -59,6 +59,11 @@ include 'header.php';
       echo 'Please <a href="' . $login_url . '">login.</a>';
     }
   ?>
+  <div id='contentPage' class='text main upload' style="padding-bottom:30px;">
+  <p>Upload Your Photo !!<br/>
+	Select Photo to upload:
+  </p>
+  </div>
   	   <div id="Photos">
 	<ul class="polaroids large-block-grid-4 masonry-container">
 	</ul>
@@ -76,21 +81,24 @@ include 'header.php';
 		} 	
 		for ( x=0; x<raw_data.length;x++)
 			{
-			var HTML = "<a class='clickHereforLightbox' href='upload_popup.php?id="+idAlbum+"&photoId="+raw_data[x].id+"'><img  src='"+raw_data[x].source+"'data-large='"+raw_data[x].source+"' alt='" +raw_data[x].id+ "'/></a>"
+			var HTML = "<a class='clickHereforLightbox' data-href='upload_popup.php?id="+idAlbum+"&photoId="+raw_data[x].id+"'><img  src='"+raw_data[x].source+"'data-large='"+raw_data[x].source+"' alt='" +raw_data[x].id+ "'/></a>"
 			$(document.createElement('li')).html(HTML).appendTo("#Photos>ul.polaroids");
 			}
+			
+	
+			
 			$(".clickHereforLightbox").click(function()
-			{
-
-		/*	var pid=  $(this).children().attr("alt");
-		$.colorbox({href:"upload_popup.php?id="+idAlbum+"&photoId="+pid});
-		*/
+			{	
+			var elem=$(this);
+			$.colorbox({href:elem.attr('data-href'),width:'450px',height:'580px',scrolling:false});	
+			}
+			);
 		});
-        });
-		
-		
+ 
 		
 		</script>
+		<div class='htmldata' style='display:none;' >
+		</div>
  </body>
 </html>
 

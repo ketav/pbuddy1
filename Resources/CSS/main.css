@@ -1,8 +1,10 @@
 body>#header {background-color:#2E2E2E;position:fixed; width:140px; height:100%;}
 body>#header .logoFig{}
+body{height:100%;}
 .menu-bar{padding-top:160px;}
 .menu-bar ul li{padding-top:20px;}
 #contentWrapper{padding-left:250px;}
+.title{padding: 10px 0px 40px 0px;}
 #homePageDesign{background-image: -webkit-gradient(
 	linear,
 	left top,
@@ -111,4 +113,9 @@ z-index: 5;
 {
 	
 	left: 50%;
+}
+.text.main.upload
+{
+	font-weight:normal;color:#000000;letter-spacing:1pt;word-spacing:2pt;font-size:19px;text-align:left;font-family:arial, helvetica, sans-serif;line-height:1;
+
 }

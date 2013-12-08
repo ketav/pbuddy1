@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="/pbuddy1/Resources/CSS/main.css" />
   <link rel="stylesheet" href="/pbuddy1/Resources/CSS/reset.css" />
   </head>
-<body id="homePageDesign">
+<body>
 <?php
 include 'header.php';
 ?>

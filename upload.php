@@ -80,6 +80,11 @@ include 'header.php';
     }
 
   ?>
+  <div id='contentPage' class='text main upload' style="padding-bottom:30px;">
+  <p>Upload Your Photo !!<br/>
+	Select Albums:
+  </p>
+  </div>
   <div id="albums">
   <ul class="polaroids large-block-grid-4 masonry-container">
    </ul>
