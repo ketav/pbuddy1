@@ -18,9 +18,12 @@
  <head>
   <title>Profile</title>
 <script type="text/javascript" src="/pbuddy1/resources/js/jquery-1.8.2.min.js"></script> 
+  <script type="text/javascript" src="/pbuddy1/resources/js/jquery.colorbox-min.js"></script>
 <link rel="stylesheet" href="/pbuddy1/Resources/CSS/main.css" />
 <link rel="stylesheet" href="/pbuddy1/Resources/CSS/reset.css" />
+  <link rel="stylesheet" type="text/css" href="/pbuddy1/resources/css/colorbox.css" /
 </head>
+
  <body id="homePageDesign">
  <?php
 include 'header.php';
@@ -55,7 +58,7 @@ include 'header.php';
 		</form>
 		</div>
 		<div class="photos">
-		<ul class="bxslider">
+		<ul class="bxslider polaroids large-block-grid-4">
 		</ul>
 		</div>		
 	</div><!-- container -->
@@ -89,11 +92,15 @@ include 'header.php';
 									$('#genderFemale').attr('checked', 'checked');
 									$('#genderMale').attr('checked', false);
 									}
-									var HTML = "<img style='width:100px; height:100px;' id='photo"+x+"' src='"+userDetails[x].photo_url+"'/><span>Rating:"+userDetails[x].avg_rating+"/10</span>";	
+									var HTML = "<a class='clickHereforLightbox' data-href='remove_popup.php?userId="+userID+"&photoID="+userDetails[x].photo_id+"' title='Rating:"+userDetails[x].avg_rating+"'><img style='width:100px; height:100px;' id='photo"+x+"' src='"+userDetails[x].photo_url+"'/></a>";	
 									$(document.createElement('li')).html(HTML).appendTo('div.photos ul.bxslider');
 								}
 						   }
-						$('.bxslider').bxSlider();						   
+			$(".clickHereforLightbox").click(function()
+			{	
+			var elem=$(this);
+			$.colorbox({href:elem.attr('data-href'),width:'450px',height:'580px',scrolling:false});	
+			});				   
 						}						
 						});	
 						

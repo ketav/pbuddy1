@@ -57,6 +57,11 @@
 	<a href='#' id='next' style="position:relative; top: 50%; left: 88%;"><img src="/pbuddy1/resources/images/go_next.png" /></a>
 	<button type="button" class='uploadButton' style="position:relative;top:94%; left:17%;">Upload This Photo</button> 
    </div>
+    <div class="resultBox" style="display:none;">
+   <p>Photo Uploaded successfully!!</p>
+   <a href="#" title="Rate Photos">Rate Photos</a>
+   <a href="#" title="My Profile">My Profile</a>
+   </div>   
    <script type="text/javascript">	
 	var imgNav=0;
 	var raw_data1;
@@ -118,8 +123,8 @@
 							dataType: "html",
 							success: function(data)
 							{
-							   alert(data);
-							}
+							$('#PhotosUpload').css("display", "none");
+						   $('.resultBox').css("display", "block");							}
 							});
 						});
 		</script>
