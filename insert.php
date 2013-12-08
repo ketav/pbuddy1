@@ -89,11 +89,12 @@ $con=mysqli_connect($host,$user,$pwd,$db);
 	//var_dump($result);
 	}
 	else if ($task=="removeUserphoto")
-	  {
-	  $result = mysqli_query($con, "CALL pb_RemovePhoto('".$photoId."')");
-	  echo $result;
-	  //var_dump($result);
-	  }
+	{
+	$result = mysqli_query($con, "CALL pb_RemovePhoto('".$photoId."')");
+	echo $result;
+	//var_dump($result);
+	}
+	 
 
 	else
 	{

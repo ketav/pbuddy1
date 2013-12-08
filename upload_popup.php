@@ -17,10 +17,6 @@
 <html>
  <head>
   <title>Album Popup</title>
-  <script type="text/javascript" src="/pbuddy1/resources/js/jquery-1.8.2.min.js"></script>
-
-  <link rel="stylesheet" type="text/css" href="/pbuddy1/resources/css/main.css" />
-
  </head>
  <body>
  <?php

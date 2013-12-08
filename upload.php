@@ -15,6 +15,7 @@
 ?>
 <html>
 	<head>
+	  <title>Select Album</title>
 		 <link rel="stylesheet" href="/pbuddy1/Resources/CSS/main.css" />
 		 <link rel="stylesheet" href="/pbuddy1/Resources/CSS/reset.css" />
 	
@@ -107,16 +108,8 @@ include 'header.php';
 			var HTML = "<a class='item' title='"+raw_data[x].name+"' href='/pbuddy1/albums.php?id="+raw_data[x].id+"'><img src='https://graph.facebook.com/"+raw_data[x].cover_photo+"/picture?access_token="+access_token+"'/></a>"
 			$( document.createElement('li')).html(HTML).appendTo("#albums>ul.polaroids");
 			}
-	/*	var container = document.querySelector('.masonry-container');
-		var msnry = new Masonry( container, {
-		  // options
-		  
-		  itemSelector: 'a.item'
-		});*/
-		$(".item").click(function()
-		{
-			console.log($(this).attr('href'));
-		});
+
+
 });
 		</script>
 
