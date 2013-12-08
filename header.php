@@ -19,6 +19,7 @@
   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=217734178406318";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+<?php include_once("analyticstracking.php") ?>
 <div id="header">
 				<a class="logoFig" title="Miko" href="/pbuddy1/index.php">
 					<figure><img title="Miko" alt="Miko" src="/pbuddy1/Resources/Images/logo.png"></figure>
