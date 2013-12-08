@@ -27,10 +27,10 @@
 <div class="menu-bar">
 				<ul>
 					<li>
-					 <?php
+										 <?php
 	  if($user_id)
 	  {
-	  echo('<a href="rating.php">RATE PHOTOS</a>');
+	  echo('<a href="/pbuddy1/index.php">RATE PHOTOS</a>');
 	  }
 	  else
 	  {
@@ -54,7 +54,7 @@
 					 <?php
 	  if($user_id)
 	  {
-	  echo('<a href="rating.php">UPLOAD YOUR PHOTO</a>');
+	  echo('<a href="/pbuddy1/upload.php">UPLOAD YOUR PHOTO</a>');
 	  }
 	  else
 	  {
@@ -65,13 +65,13 @@
 					 <?php
 	  if($user_id)
 	  {
-	  echo('<a href="rating.php">My Profile</a>');
+	  echo('<a href="/pbuddy1/profile.php">My Profile</a>');
 	  }
 	  else
 	  {
 	  echo('<a href="'.$login_url.'">LOGIN</a>');
 	  }
-	  ?>			</li>	
+	  ?>				</li>	
 <li>
 		<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 </li>					

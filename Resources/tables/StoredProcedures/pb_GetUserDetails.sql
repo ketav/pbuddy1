@@ -6,8 +6,8 @@ DELIMITER $$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `pb_GetUserDetails`(IN `userID` VARCHAR(50))
 BEGIN
-		SELECT 		user_detail.email_id,	user_detail.name,	user_detail.sex,	user_detail.geography,	
-					photo_detail.photo_id,	photo_detail.photo_url,	photo_detail.user_id,		photo_detail.avg_rating											
+		SELECT 		user_detail.email_id,	user_detail.name,	user_detail.sex,	user_detail.geography, user_detail.age,	
+					photo_detail.photo_id,	photo_detail.photo_url,	photo_detail.user_id,		photo_detail.avg_rating,		photo_detail.rating_received										
 		FROM photo_detail 
 		INNER JOIN user_detail  
 		ON  photo_detail.user_id = user_detail.user_id

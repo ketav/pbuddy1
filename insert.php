@@ -88,6 +88,13 @@ $con=mysqli_connect($host,$user,$pwd,$db);
 	echo $result;
 	//var_dump($result);
 	}
+	else if ($task=="removeUserphoto")
+	  {
+	  $result = mysqli_query($con, "CALL pb_RemovePhoto('".$photoId."')");
+	  echo $result;
+	  //var_dump($result);
+	  }
+
 	else
 	{
 	$result = mysqli_query($con, "CALL pb_InsertPhoto('".$id."','".$src."','".$imgid."')");

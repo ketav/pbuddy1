@@ -100,3 +100,15 @@ position: relative;
 z-index: 5;
 }
 
+
+.imagePopup
+{
+	position:relative;
+	max-height:550px;
+	max-width:400px;
+}
+.uploadButton
+{
+	
+	left: 50%;
+}

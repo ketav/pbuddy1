@@ -76,14 +76,15 @@ include 'header.php';
 		} 	
 		for ( x=0; x<raw_data.length;x++)
 			{
-			var HTML = "<a class='clickHereforLightbox' href='#'><img  src='"+raw_data[x].source+"'data-large='"+raw_data[x].source+"' alt='" +raw_data[x].id+ "'/></a>"
+			var HTML = "<a class='clickHereforLightbox' href='upload_popup.php?id="+idAlbum+"&photoId="+raw_data[x].id+"'><img  src='"+raw_data[x].source+"'data-large='"+raw_data[x].source+"' alt='" +raw_data[x].id+ "'/></a>"
 			$(document.createElement('li')).html(HTML).appendTo("#Photos>ul.polaroids");
 			}
 			$(".clickHereforLightbox").click(function()
 			{
 
-		var pid=  $(this).children().attr("alt");
+		/*	var pid=  $(this).children().attr("alt");
 		$.colorbox({href:"upload_popup.php?id="+idAlbum+"&photoId="+pid});
+		*/
 		});
         });
 		
