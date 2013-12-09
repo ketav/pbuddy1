@@ -123,11 +123,13 @@
 							dataType: "html",
 							success: function(data)
 							{
+							_gaq.push(['_trackPageview','/photouploaded']);
 							$('#PhotosUpload').css("display", "none");
 						   $('.resultBox').css("display", "block");							}
 							});
 						});
 		</script>
- </body>
+		
+ <?php 	include 'footer.php'; ?> </body>
 </html>
 

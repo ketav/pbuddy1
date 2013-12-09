@@ -100,6 +100,10 @@ include 'header.php';
 			{	
 			var elem=$(this);
 			$.colorbox({href:elem.attr('data-href'),width:'450px',height:'580px',scrolling:false});	
+			$(document).bind('cbox_complete', function(){
+			_gaq.push(['_trackPageview',elem.attr('data-href')]);
+			$(document).unbind('cbox_complete');
+			});
 			});				   
 						}						
 						});	
@@ -132,6 +136,6 @@ $.ajax({
 	});
 });
 </script>
-</body>
+<?php 	include 'footer.php'; ?> </body>
 </html>
 

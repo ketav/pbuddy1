@@ -113,6 +113,6 @@ include 'header.php';
 });
 		</script>
 
- </body>
+ <?php 	include 'footer.php'; ?> </body>
 </html>
 

@@ -3,6 +3,7 @@
   <title>Remove Photo Popup</title>
  </head>
  <body>
+
  <?php
  parse_str($_SERVER['QUERY_STRING']);
  echo "<script>\n";
@@ -81,12 +82,13 @@ echo "var photoId='".$photoID."';";
 						dataType: "html",
 						success: function(data)
 						{
+							_gaq.push(['_trackPageview','/photoremoved']);
 						   $('#PhotosUpload').css("display", "none");
 						   $('.resultBox').css("display", "block");
 						}						   
 						});	
 		});
 		</script>
- </body>
+ <?php 	include 'footer.php'; ?> </body>
 </html>
 

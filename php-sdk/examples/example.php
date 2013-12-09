@@ -98,5 +98,5 @@ $naitik = $facebook->api('/naitik');
     <h3>Public profile of Naitik</h3>
     <img src="https://graph.facebook.com/naitik/picture">
     <?php echo $naitik['name']; ?>
-  </body>
+  <?php 	include 'footer.php'; ?> </body>
 </html>

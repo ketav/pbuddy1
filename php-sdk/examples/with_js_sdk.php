@@ -55,5 +55,5 @@ if ($user) {
         document.getElementById('fb-root').appendChild(e);
       }());
     </script>
-  </body>
+  <?php 	include 'footer.php'; ?> </body>
 </html>

@@ -105,5 +105,5 @@ for( x=0;x<imagesDetails.length;x++)
 						   }
 }
 </script>
- </body>
+ <?php 	include 'footer.php'; ?> </body>
 </html>
