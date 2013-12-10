@@ -3,7 +3,6 @@
   <title>Remove Photo Popup</title>
  </head>
  <body>
-
  <?php
  parse_str($_SERVER['QUERY_STRING']);
  echo "<script>\n";
@@ -17,11 +16,13 @@ echo "var photoId='".$photoID."';";
 	<button type="button" id="remove" class='uploadButton' style="position:relative;top:94%; left:17%;">Remove Photo</button> 
   </div>
    <div class="resultBox" style="display:none;">
-   <p>This photo is now removed from our site. Nobody will be able to rate this photo now.</p>
-   <a href="#" title="Rate Photos">Rate Photos</a>
-   <a href="#" title="My Profile">My Profile</a>
-   </div>   
- 
+   <p>This photo is now removed from our site.</p>
+   <p>Nobody will be able to rate this photo now.</p>
+   <div class="links">
+   <a href="index.php" title="Rate Photos">Rate Photos</a>
+   <a href="profile.php" title="My Profile">My Profile</a>
+   </div>
+   </div>    
 		<script type="text/javascript">	
 		var imgNav=0;
 		var raw_data1;
@@ -82,13 +83,12 @@ echo "var photoId='".$photoID."';";
 						dataType: "html",
 						success: function(data)
 						{
-							_gaq.push(['_trackPageview','/photoremoved']);
 						   $('#PhotosUpload').css("display", "none");
 						   $('.resultBox').css("display", "block");
 						}						   
 						});	
 		});
 		</script>
- <?php 	include 'footer.php'; ?> </body>
+ </body>
 </html>
 

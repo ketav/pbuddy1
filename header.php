@@ -57,22 +57,22 @@ $("body").attr("id","homePageDesign");
 					 <?php
 	  if($user_id)
 	  {
-	  echo('<a href="/pbuddy1/upload.php">UPLOAD YOUR PHOTO</a>');
+	  echo('<a href="/pbuddy1/upload.php" title="UPLOAD YOUR PHOTO"><img src="/pbuddy1/resources/images/Upload Logo.jpg"/></a>');
 	  }
 	  else
 	  {
-	  echo('<a href="'.$login_url.'">UPLOAD YOUR PHOTO</a>');
+	  echo('<a href="'.$login_url.'" title="UPLOAD YOUR PHOTO"><img src="/pbuddy1/resources/images/Upload Logo.jpg"/></a>');
 	  }
 	  ?>			</li>						
 					<li>
 					 <?php
 	  if($user_id)
 	  {
-	  echo('<a href="/pbuddy1/profile.php">My Profile</a>');
+	  echo('<a href="/pbuddy1/profile.php" title="My Profile"><img src="/pbuddy1/resources/images/Profile.jpg"/>My Profile</a>');
 	  }
 	  else
 	  {
-	  echo('<a href="'.$login_url.'">LOGIN</a>');
+	  echo('<a href="'.$login_url.'" title="Login"><img src="/pbuddy1/resources/images/Profile.jpg"/></a>');
 	  }
 	  ?>				</li>	
 <li>

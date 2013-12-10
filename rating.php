@@ -9,8 +9,8 @@
 		var start = 1;
 		function barOnSelect(value,text)
 		{
-					console.log($(".slideshow").children('img:visible').attr('data-photoid'));
-					console.log($(".slideshow").children('img:visible').attr('src'));
+					//console.log($(".slideshow").children('img:visible').attr('data-photoid'));
+					//console.log($(".slideshow").children('img:visible').attr('src'));
 					$('#example-e').barrating('destroy');	
 					 $('#example-e').barrating('show',
 					 {
@@ -19,7 +19,7 @@
                      showSelectedRating:false,
 					 });
                         $.ajax({
-						url: '/pbuddy1/insert.php?task= &rating='+value+'&pid='+$(".slideshow").children('img:visible').attr('data-photoid'),						
+						url: '/pbuddy1/insert.php?task=updateRating&rating='+value+'&pid='+$(".slideshow").children('img:visible').attr('data-photoid'),						
 						type: "GET",
 						dataType: "html",
 						success: function(data)
@@ -109,7 +109,7 @@ function getandInsertPhotosData()
 								if( typeof photoDetails[x] != 'undefined')
 								{
 										$(document.createElement('img')).attr("width","400px").attr("height","400px").attr("src",photoDetails[x].photo_url).attr("data-photoID",photoDetails[x].photo_id).appendTo('div.slideshow');
-										console.log(photoDetails[x].photo_url);
+										//console.log(photoDetails[x].photo_url);
 								}
 						   }
 						   //$('.slideshow').cycle('next');
@@ -184,7 +184,7 @@ function getandInsertPhotosData()
 		});
         
     </script> 
-  		<div class="slideshow" style="position: absolute; margin: 30px 370px;">
+  		<div class="slideshow" style="position: absolute; margin: 30px 150px;">
 		
 		</div>			
 		<a href="#" class="next">skip</a>

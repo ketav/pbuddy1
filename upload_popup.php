@@ -58,9 +58,12 @@
 	<button type="button" class='uploadButton' style="position:relative;top:94%; left:17%;">Upload This Photo</button> 
    </div>
     <div class="resultBox" style="display:none;">
-   <p>Photo Uploaded successfully!!</p>
-   <a href="#" title="Rate Photos">Rate Photos</a>
-   <a href="#" title="My Profile">My Profile</a>
+<p>Thank You!!</p>
+	<p>Your Photo Is Uploaded successfully!!</p>
+	<div class="links">
+   <a href="index.php" title="Rate Photos">Rate Photos</a>
+   <a href="profile.php" title="My Profile">My Profile</a>
+   </div>
    </div>   
    <script type="text/javascript">	
 	var imgNav=0;
@@ -123,13 +126,11 @@
 							dataType: "html",
 							success: function(data)
 							{
-							_gaq.push(['_trackPageview','/photouploaded']);
 							$('#PhotosUpload').css("display", "none");
 						   $('.resultBox').css("display", "block");							}
 							});
 						});
 		</script>
-		
- <?php 	include 'footer.php'; ?> </body>
+ </body>
 </html>
 
